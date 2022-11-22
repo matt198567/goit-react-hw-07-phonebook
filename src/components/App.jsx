@@ -1,6 +1,6 @@
 import { ContactForm } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
+import Filter from './Filter/Filter';
 import Container from './Container/Container';
 
 export function App() {

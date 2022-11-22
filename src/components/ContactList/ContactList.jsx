@@ -22,10 +22,10 @@ export const ContactList = () => {
   return (
     <Container>
       <ul className={s.list}>
-        {contacts.map(({ id, name, number }) => (
+        {contacts.map(({ id, name, phone }) => (
           <li className={s.item} key={id}>
             <p className={s.info}>
-              {name}: {number}
+              {name}: {phone}
             </p>
             <BsFillTrashFill
               size={22}

@@ -1,15 +1,15 @@
 import Container from 'components/Container/Container';
 import s from './Filter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from 'redux/phonebook/selectors';
-import { filterChangeAction } from 'redux/phonebook/actions';
+import { getFilter } from '../../redux/phonebook/selectors';
+import { filterChangeAction } from '../../redux/phonebook/actions';
 
-export const Filter = () => {
+export default function Filter() {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
-  const changeFilter = e => {
-    dispatch(filterChangeAction(e.currentTarget.value));
+  const handleFilterChange = e => {
+    dispatch(filterChangeAction(e.target.value));
   };
 
   return (
@@ -20,9 +20,9 @@ export const Filter = () => {
           className={s.input}
           type="text"
           value={filter}
-          onChange={changeFilter}
+          onChange={handleFilterChange}
         ></input>
       </label>
     </Container>
   );
-};
+}

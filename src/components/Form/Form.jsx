@@ -7,7 +7,7 @@ import s from './Form.module.css';
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -18,7 +18,7 @@ export function ContactForm() {
       case 'name':
         setName(value);
         break;
-      case 'phone':
+      case 'number':
         setNumber(value);
         break;
       default:
@@ -33,7 +33,7 @@ export function ContactForm() {
     });
     if (!repeatName) {
       Notify.success(`${name} is added in contacts`);
-      dispatch(addContacts({ name, phone }));
+      dispatch(addContacts({ name, number }));
       setNumber('');
       setName('');
       return;
@@ -59,12 +59,12 @@ export function ContactForm() {
         <input
           className={s.input}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           onChange={handleChange}
-          value={phone}
+          value={number}
         />
         <button className={s.btn} type="submit">
           Add contact
